@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  personal-site:
+    image: nginx:alpine
+    volumes:
+      - ./personal-website:/usr/share/nginx/html
+    ports:
+      - "8080:80"
+    container_name: personal-site
+    restart: unless-stopped
+
+  todo-app:
+    image: docker/getting-started
+    ports:
+      - "3000:80"
+    container_name: todo-app
+    restart: unless-stopped
